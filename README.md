@@ -7,7 +7,7 @@
 ***🔍 Data-Driven Decision Making***: The Sales Forecasting System empowers organizations to make informed decisions based on reliable predictions.<br>
 
 ## The system architect is as follows (as of August 2023):
-![Monthly%20FCST%20Cycle.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/FCST%20Business-Data%20Science%20Collaboration%20Architecture.png "Magic Gardens")
+![System%20FCST%20WorkFlow.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/System%20FCST%20WorkFlow.png "Magic Gardens")
 
 ***🏢 Data Warehouse:*** All data comes from UDS (Clickhouse).<br>
 ***📚 Feature Store:*** Contains a collection of relevant features related to sales, market trends, inventory, and products info. These features are extracted from the data warehouse and serve as input variables for the forecasting models.<br>
@@ -24,7 +24,7 @@ These modules work together to provide a comprehensive sales forecasting solutio
 ![Monthly%20FCST%20Cycle.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/Monthly%20System%20FCST%20Update%20Cycle.png "Magic Gardens")
 
 ### Sales FCST Business-Data Science Collaboration Architecture(as of September 2023):
-![System%20FCST%20WorkFlow.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/System%20FCST%20WorkFlow.png "Magic Gardens")
+![Monthly%20FCST%20Cycle.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/FCST%20Business-Data%20Science%20Collaboration%20Architecture.png "Magic Gardens")
 
 ***Distill business directives:***
 Summarized the process of extracting actionable business guidelines and instructions based on analysis and insights on the business side, mainly through meetings to complete information transmission <br>
