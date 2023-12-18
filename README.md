@@ -1,10 +1,8 @@
 # Sales Forecast Project Brief
 ## 💫 Overview
 📈 ***The Sales Forecast Project is crucial for business planning and strategy. It accurately predicts future sales volumes, allowing businesses to optimize inventory, reorder, and funding allocation***.<br><br>
-***📦 Optimize Inventory Management***: Accurate sales predictions help businesses plan their inventory levels more effectively.<br>
-***💰 Improve Reorder Planning***: With insights into future sales volumes, businesses can streamline their production processes.<br>
-***⚖️ Out-of-stock and Overstock Reduction***: Accurate sales forecasts enable businesses to avoid overproduction, resulting in reduced out-of-stock or overstock costs.<br>
-***🔍 Data-Driven Decision Making***: The Sales Forecasting System empowers organizations to make informed decisions based on reliable predictions.<br>
+***1.- Optimize our Safety stocks/reorder points -> liberate cash (more cash available for inventory) -> Increase in-stock rates and have consistency in our stock levels -> Increase revenue.***<br>
+***2.- Have higher accuracy in our revenue FCST -> not constant changes in funding for inventory -> Increase in-stock rates and have consistency in our stock levels -> Increase revenue.***<br>
 
 ## The system architect is as follows (as of August 2023):
 ![System%20FCST%20WorkFlow.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/System%20FCST%20WorkFlow.png "Magic Gardens")
