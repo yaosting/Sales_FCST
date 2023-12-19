@@ -3,6 +3,7 @@
 📈 ***The Sales Forecast Project is crucial for business planning and strategy. It accurately predicts future sales volumes, allowing businesses to optimize inventory, reorder, and funding allocation***.<br><br>
 ***1.- Optimize our Safety stocks/reorder points -> liberate cash (more cash available for inventory) -> Increase in-stock rates and have consistency in our stock levels -> Increase revenue.***<br>
 ***2.- Have higher accuracy in our revenue FCST -> not constant changes in funding for inventory -> Increase in-stock rates and have consistency in our stock levels -> Increase revenue.***<br>
+***3.- 数据赋能业务的突破性尝试，盘活企业数据、部门孤岛，接入三方外部市场数据，构建高质量的统一数据基座。以FCST项目为核心，用部门关键月度会议牵头，打通以Dynamic Princing、Dynamic SEM、GRS为核心的PM、MKT、SCP(采销存)部门。实现核心业务数字化、自动化，业务影响快速传递给上下游，以统一的revenue FCST为全局目标导向，提高部门间的高效协同与调整。***<br>
 
 ## The system architect is as follows (as of August 2023):
 ![System%20FCST%20WorkFlow.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/System%20FCST%20WorkFlow.png "Magic Gardens")
