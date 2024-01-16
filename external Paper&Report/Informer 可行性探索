@@ -1,0 +1,46 @@
+## What is Transformer?
+It can be simply understood as a "moving weighted" method. The forecast for each future time step is obtained by weighting the historical data. The weights are the learned Attention, and the whole process is the core of Attention: Query, Key and Value.
+Query: Prepare to forecast sales in the Nth month in the future.
+Key: Historical data in embedded form.
+Value: Calculate the similarity between Query*Key to get the weight coefficient of each historical data, then weighted sum of Value to get the forecast for sales in the Nth month.
+To further explore the hidden information in historical data, in addition to representing data using Embeddings, multi-head mechanism is adopted to map an embedding to multiple embeddings, and then match the mapped keys through more Queries to avoid the blind men and the elephant phenomenon.
+## What is Informer?
+It is a Transformer variant for long time series forecasting in single-sample-multi-feature scenarios. In addition to computational acceleration improvements, it approximates Attention for long sequences by performing random Attention calculation on samples.
+Main changes when applying Informer to Sales FCST
+a. Unable to load test dataset (due to fixed data loading ratio + epoch affects dataset size)
+Rewrote date_loader module, adjusted batch_size, enc_in etc. parameters.
+b. test dataset shows loss:nan (due to Informer's strict assumptions on trend fluctuations in data for each time step)
+Removed products with long-term zero sales, added random numbers (-0.1~+0.1) to sales.
+c. Switched from single product to multiple product prediction
+Adopted multivariate predict multivariate mode, with each product's sales as a column.
+d. Unified forecast results and evaluation metrics
+Reverse normalized Informer prediction results, split multi-dimensional arrays, unified FA.
+## Informer Results
+Pool: ABC category products under AMZ_US channel. FA: M3
+Reasons for Informer results being below expectations:
+Reason 1: Informer is mainly for single product prediction, network architecture design does not consider multi-product scenarios.
+Reason 2: When predicting multiple products, Informer cannot add historical/future features of each product.
+Reason 3: The paper assumes stable fluctuating data like power and weather, quite different from ecommerce scenarios with frequent stockouts, holiday fluctuations, marketing campaigns.
+Reason 4: The paper assumes daily time series data, considering the need to rewrite OOS Corrected module for daily sales data, monthly sales data consistent with NP is used.
+Informer Code for This Run
+https://sales-fcst.notebook.us-west-2.sagemaker.aws/lab/tree/Sales_FCST/models/Informer
+
+## Next Steps
+Build feature engineering module based on CB (CatBoost) machine learning to uncover key influencing factors in Sales FCST scenario.
+Consider relatively mature deep learning time series algorithms in industry suitable for Sales FCST scenario and available data.
+Common Industrial Time Series Solutions & Top Conference Papers in Recent 5 Years
+Alibaba-BML: (CB machine learning + Propet, Arima deep learning, used for Sales FCST)
+https://help.aliyun.com/document_detail/186744.html?spm=a2c4g.186744.0.0.3a8c651cD9vaQX
+
+Baidu-PAI: (CB machine learning, used for Sales FCST)
+https://ai.baidu.com/ai-doc/BML/0klj1uutz
+
+Amazon-AutoGluon: (CB machine learning + AutoGluonTabular, DeepAR, TFT deep learning)
+https://aws.amazon.com/blogs/opensource/machine-learning-with-autogluon-an-open-source-automl-library/
+
+Microsoft-Azure: (CB machine learning + AutoArima, Prophet, TCNForecaster deep learning)
+https://learn.microsoft.com/en-us/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting?view=azure-ml-py
+
+Top conference papers on time series prediction in recent 5 years & code:
+https://github.com/ddz16/TSFpaper
+
