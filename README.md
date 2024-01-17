@@ -17,7 +17,7 @@
 These modules work together to provide a comprehensive sales forecasting solution, enabling businesses to make informed decisions based on accurate predictions of future sales performance.<br>
 
 ## Comparison of industry solutions
-![Comparison of industry solutions.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/%E6%96%B9%E6%A1%88%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94.png "Magic Gardens")
+![Comparison of industry solutions.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/Comparison%20of%20industry%20solutions.png "Magic Gardens")
 
 ### Monthly FCST Cycle. The collaborative process between sales forecast-driven replenishment, logistics, marketing and financial decision making.
 ![Monthly%20FCST%20Cycle.png](https://github.com/yaosting/Sales_FCST/blob/main/Docs/_static/Monthly%20FCST%20Cycle.png "Magic Gardens")
