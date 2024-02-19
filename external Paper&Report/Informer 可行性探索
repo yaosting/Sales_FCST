@@ -1,0 +1,55 @@
+最近我们测试了Informer模型在销量预测的效果,结果显示该模型直接应用于当前业务场景存在一定问题,本邮件将总结测试情况及问题分析。
+
+1.什么是Transformer？
+ 可以简单理解为移动加权法，未来每个时间步的预测值都是由历史数据加权得到,权重即学习得到的Attention,整个过程即Attention核心的<Query,Key和Value>：
+l  Query: 准备预测未来第N个月的销量
+l  Key：历史数据的Embedding形式
+l  Value：计算Query*key的相似性，得到每个历史数据的权重系数,然后进行加权求和Value，即预测第N个月的销量值
+为了进一步挖掘历史数据的隐藏信息，除了将数据用Embedding来表示，还采用了多头机制，将一个embedding映射到多个embedding，然后通过更多的Query来匹配映射的key，避免了盲人摸象的现象
+ 
+2.什么是Informer？
+ Transformer的变体，针对单样本多特征场景的长时序预测算法。除工程上的计算加速外，将Transformer的全Attention计算改为对样本进行随机计算，来实现对长序列的Attention近似
+    
+3.Informer用于Sales FCST时的主要变动点
+a.无法加载test数据集（由于数据加载的固定比例+影响数据集大小的peoch）
+ 重写date_loader模块、调整batch_size、enc_in等参数
+B.test数据集出现loss:nan（由于informer对数据有严格假设，每个数据步的待预测值有趋势波动）
+ 剔除长期无销量产品、对销量添加随机数(-0.1~+0.1)
+c.单产品预测切换为多产品预测
+ 采用multivariate predict multivariate模式，将每个产品的销量作为一列
+d.预测结果、评估指标统一
+ 对informer的预测结果进行反归一化、多维数组拆分、FA统一
+ 
+4.Informer效果
+ Pool: AMZ_US渠道下的ABC类产品   FA: M3
+p955
+ 
+5.Informer效果不及预期的原因：
+    原因一：Informer主要针对单个产品进行预测，算法网络结构的设计没有考虑多产品场景
+    原因二：当进行多产品预测时，Informer无法添加各产品的历史/未来特征
+    原因三：论文假设数据是波动平稳的电力、天气数据，与电商场景的频繁缺货、节日波动、市场营销有较大出入
+    原因四：论文假设的是Daily的时序数据，考虑到Sales FCST Daily数据需要重写OOS Corrected 模块，因此采用的是与NP一致的Monthly销量数据
+ 
+6.本次Informer代码
+https://sales-fcst.notebook.us-west-2.sagemaker.aws/lab/tree/Sales_FCST/models/Informer
+ 
+7.下一步计划
+ 1.基于CB(Catboost)类机器学习构建特征工程模块，挖掘Sales FCST场景下的核心影响因素
+ 2.结合Sales FCST预测场景及可用数据，优先考虑工业界相对成熟的深度学习时序算法
+ 
+8.工业时序预测常规解决方案&近5年时序预测顶会论文
+阿里-BML：(CB类机器学习+Propet、Arima类深度学习，已用于Sales FCST)
+    https://help.aliyun.com/document_detail/186744.html?spm=a2c4g.186744.0.0.3a8c651cD9vaQX
+百度-PAI：(CB类机器学习，已用于Sales FCST)
+    https://ai.baidu.com/ai-doc/BML/0klj1uutz
+亚马逊-AutoGluon：(CB类机器学习+AutoGluonTabular、DeepAR、TFT类深度学习)
+    https://aws.amazon.com/cn/blogs/opensource/machine-learning-with-autogluon-an-open-source-automl-library/
+微软-Azure：（CB类机器学习+AutoArima、Prophet、TCNForecaster类深度学习）
+    https://learn.microsoft.com/en-us/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting?view=azure-ml-py
+近5年时序预测顶会论文及代码库：
+    https://github.com/ddz16/TSFpaper
+ 
+ 
+Best Regards
+ 
+Shawn
