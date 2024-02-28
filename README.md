@@ -58,6 +58,11 @@ After reviewing business directives, the data science team hands off optimized d
 持续优化和扩展：不断优化模型，应对新的业务挑战和需求，推动数据和模型的持续演进。<br>
 ***成果***：实现模型在企业级的广泛应用，为企业带来显著的商业价值和竞争优势。<br>
 
+## [2024 OKR](https://github.com/yaosting/Sales_FCST/blob/main/Internal%20Business%20report/2024%20OKR)
+***1.调整System FCST预测目标，适配2024年Infinite Business的Demand Plan OKR***<br>
+***2.拓展System FCST适用范围，满足2024年Infinite Business的新渠道、新产品、新场景、新数据***<br>
+***3.与需求计划团队为主的业务方进行紧密合作，在业务的协助下完成新场景、新问题、新升级的发现、分析、解决***<br>
+
 # 🗓️  Milestone
 #### 2019 - DSS + Sales Pattern
 Starting from 2019, the sales forecasting system has been driven by DSS (Daily Selling Speed) and Sales Pattern.
