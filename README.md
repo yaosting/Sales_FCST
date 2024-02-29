@@ -58,6 +58,13 @@ After reviewing business directives, the data science team hands off optimized d
 持续优化和扩展：不断优化模型，应对新的业务挑战和需求，推动数据和模型的持续演进。<br>
 ***成果***：实现模型在企业级的广泛应用，为企业带来显著的商业价值和竞争优势。<br>
 
+## [2023 Review](https://github.com/yaosting/Sales_FCST/blob/main/Internal%20Business%20report/2023%20Review.md)
+***在过去的一年中，我们团队取得了显著的进展和成就：*** <br>
+***1.持续更新：*** 成功连续发布了四次System FCST的优化版本。每次更新都使Ongoing产品的预测准确率平均提升了1.8%，与公司的FCST OKR保持一致。<br>
+***2.稳定交付：*** 严格按照每月2号发布System FCST的计划，这是Monthly FCST Cycle的重要一步，也是第一步。<br>
+***3.跨部门合作：*** 推动跨部门合作，在FCST场景中整合了ENG技术支持（Bing）与Demand Planning业务洞察（Daisy、Damon等），以提高FCST团队的工作效率。<br>
+***4.AI项目投入：*** 参与|协助相关团队的AI项目，包括Riwen的Text2SQL、Leon的DaVinci、Winnie的Dynamic pricing。<br>
+
 ## [2024 OKR](https://github.com/yaosting/Sales_FCST/blob/main/Internal%20Business%20report/2024%20OKR)
 ***1.调整System FCST预测目标，适配2024年Infinite Business的Demand Plan OKR***<br>
 ***2.拓展System FCST适用范围，满足2024年Infinite Business的新渠道、新产品、新场景、新数据***<br>
